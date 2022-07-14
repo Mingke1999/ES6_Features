@@ -1,0 +1,46 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Function ES6</title>
+</head>
+<body>
+        
+    <script>
+        /**the original way is to assign default value to avoid undefined*/
+        function log(info){
+            info = info || "info valule not assigned"
+            console.log(info);
+        }
+        /*ES6 give a special way*/
+        function logES6(info = "info valule not assigned"){
+            console.log(info);
+        }
+        log("hello");
+        logES6();
+        //when function call the express executed
+        var x = 99;
+        function add(value = x + 1){
+            console.log(value)
+        }
+        add();
+        //in default function call pass value to the first parameter
+        function minus(a,x=10,y){
+            console.log(x-y)
+        }
+        minus(1);   //y gets no value then NaN
+        
+        //The number of no default value parameters from the first 
+        //to the first assigned default value parameter 
+        console.log("(a,x=10,y) a start, x stopped "+minus.length)
+        //make parameter necessary
+        function missingParameter(){
+            throw new Error('Missing Parameter ---mingked')
+        }
+        function missing(x = missingParameter()){
+            console.log(x)
+        }
+        missing();
+    </script>
+</body>
+</html>
